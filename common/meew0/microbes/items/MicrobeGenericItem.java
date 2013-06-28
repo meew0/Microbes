@@ -10,14 +10,14 @@ import net.minecraft.item.Item;
 public class MicrobeGenericItem extends Item {
 
     public MicrobeGenericItem(int itemID, CreativeTabs tab, String unlocalizedName) {
-        super(itemID - 256);
-        this.setCreativeTab(tab);
-        this.setUnlocalizedName(unlocalizedName);
+        super(itemID - 256); // Set pre-unshifted item ID
+        this.setCreativeTab(tab); // Set creative tab
+        this.setUnlocalizedName(unlocalizedName); // Set unlocalized name
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconReg) {
-        this.itemIcon = iconReg.registerIcon(MicrobeMod.id + ":" + this.getUnlocalizedName());
+        this.itemIcon = iconReg.registerIcon(MicrobeMod.id + ":" + this.getUnlocalizedName()); // Register icon
     }
 }
