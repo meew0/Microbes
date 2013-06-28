@@ -67,7 +67,7 @@ public class MicrobeMod {
         // Recipes
         
         GameRegistry.addShapelessRecipe(new ItemStack(itemAgar), Item.slimeBall, new ItemStack(Item.dyePowder, 1, 1)); // Agar
-        GameRegistry.addShapedRecipe(new ItemStack(itemCottonSwab), "  W", " S ", "W  ", "W", Block.cloth, "S", Item.stick); // Cotton swab
+        GameRegistry.addRecipe(new ItemStack(itemCottonSwab), "  W", " S ", "W  ", 'W', Block.cloth, 'S', Item.stick); // Cotton swab
     }
     
     @PostInit
