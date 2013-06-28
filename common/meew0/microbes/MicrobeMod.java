@@ -2,6 +2,7 @@ package meew0.microbes;
 
 import java.util.logging.Logger;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -61,10 +62,12 @@ public class MicrobeMod {
         
         LanguageRegistry.addName(itemAgar, "Agar");
         LanguageRegistry.addName(itemEmptyAgarPlate, "Empty Agar Plate");
+        LanguageRegistry.addName(itemCottonSwab, "Cotton Swab");
         
         // Recipes
         
         GameRegistry.addShapelessRecipe(new ItemStack(itemAgar), Item.slimeBall, new ItemStack(Item.dyePowder, 1, 1)); // Agar
+        GameRegistry.addShapedRecipe(new ItemStack(itemCottonSwab), "  W", " S ", "W  ", "W", Block.cloth, "S", Item.stick); // Cotton swab
     }
     
     @PostInit
