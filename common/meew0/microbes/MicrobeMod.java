@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import meew0.microbes.items.ItemCottonSwab;
 import meew0.microbes.items.MicrobeGenericItem;
 import meew0.microbes.proxy.CommonProxy;
 import cpw.mods.fml.common.FMLLog;
@@ -26,9 +27,9 @@ public class MicrobeMod {
     
     // Items
     
-    public static MicrobeGenericItem itemAgar;
-    public static MicrobeGenericItem itemEmptyAgarPlate;
-    
+    public static Item itemAgar;
+    public static Item itemEmptyAgarPlate;    
+    public static Item itemCottonSwab;
     // Blocks
     
     @SidedProxy(serverSide = "meew0.microbes.proxy.CommonProxy", clientSide = "meew0.microbes.proxy.ClientProxy")
@@ -50,7 +51,8 @@ public class MicrobeMod {
         // Initialize items
         
         itemAgar = new MicrobeGenericItem(25900, CreativeTabs.tabMaterials, "agarSlime");
-        itemEmptyAgarPlate = new MicrobeGenericItem(25901, CreativeTabs.tabMaterials, "agarPlate");
+        itemEmptyAgarPlate = new MicrobeGenericItem(25901, CreativeTabs.tabMaterials, "agarPlate").setMaxStackSize(1);
+        itemCottonSwab = new ItemCottonSwab(25902, CreativeTabs.tabTools, "cottonSwab");
         
         // Initialize blocks
         
