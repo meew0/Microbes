@@ -23,7 +23,7 @@ public class MicrobeMod {
     @PreInit
     public void preInit(FMLPreInitializationEvent evt) {
         lg.setParent(FMLLog.getLogger());
-        lg.info("Microbes loaded, initializing now");
+        lg.info(getFullModName() + " loaded, initializing now");
     }
     
     @Init
@@ -33,7 +33,7 @@ public class MicrobeMod {
     
     @PostInit
     public void postInit(FMLPostInitializationEvent evt) {
-        lg.info("Microbes successfully initialized");
+        lg.info(getFullModName() + " successfully initialized");
     }
     
     public static String getFullModName() {
