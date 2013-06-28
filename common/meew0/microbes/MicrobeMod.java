@@ -2,6 +2,10 @@ package meew0.microbes;
 
 import java.util.logging.Logger;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import meew0.microbes.items.MicrobeGenericItem;
 import meew0.microbes.proxy.CommonProxy;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
@@ -9,6 +13,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.*;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = MicrobeMod.id, name = MicrobeMod.modName, version = MicrobeMod.modVersion)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -19,6 +25,9 @@ public class MicrobeMod {
     public static final String modVersion = "0.1a";
     
     // Items
+    
+    public static MicrobeGenericItem itemAgar;
+    public static MicrobeGenericItem itemEmptyAgarPlate;
     
     // Blocks
     
@@ -40,9 +49,20 @@ public class MicrobeMod {
     public void init(FMLInitializationEvent evt) {
         // Initialize items
         
-        
+        itemAgar = new MicrobeGenericItem(25900, CreativeTabs.tabMaterials, "agarSlime");
+        itemEmptyAgarPlate = new MicrobeGenericItem(25901, CreativeTabs.tabMaterials, "agarPlate");
         
         // Initialize blocks
+        
+        
+        // LanguageRegistry calls
+        
+        LanguageRegistry.addName(itemAgar, "Agar");
+        LanguageRegistry.addName(itemEmptyAgarPlate, "Empty Agar Plate");
+        
+        // Recipes
+        
+        GameRegistry.addShapelessRecipe(new ItemStack(itemAgar), Item.slimeBall, new ItemStack(Item.dyePowder, 1, 1)); // Agar
     }
     
     @PostInit
