@@ -44,7 +44,7 @@ public class MicrobeMod {
     @PreInit
     public void preInit(FMLPreInitializationEvent evt) {
         lg.setParent(FMLLog.getLogger()); // Initialize logger
-        lg.info(getFullModName() + " loaded, initializing now");
+        logger().info(getFullModName() + " loaded, initializing now");
     }
     
     @Init
@@ -72,7 +72,7 @@ public class MicrobeMod {
     
     @PostInit
     public void postInit(FMLPostInitializationEvent evt) {
-        lg.info(getFullModName() + " successfully initialized");
+        logger().info(getFullModName() + " successfully initialized");
     }
     
     public static String getFullModName() {
@@ -81,5 +81,10 @@ public class MicrobeMod {
     
     public Logger logger() {
         return lg;
+    }
+
+    public void crash(RuntimeException t) {
+        logger().severe("Something went horribly wrong!");
+        throw t;
     }
 }
